@@ -1,12 +1,12 @@
 <?php
 
-namespace nizsheanez\assetConverter;
+namespace Twelver313\AssetConverter;
 
 use Yii;
 
 /**
  * Class Scss
- * @package nizsheanez\assetConverter
+ * @package Twelver313\AssetConverter
  * @author Andrey Izman <izmanw@gmail.com>
  */
 class Scss extends Parser
@@ -29,13 +29,14 @@ class Scss extends Parser
     /**
      * @var string output style
      */
-    public $outputStyle = 'nested';
+    public $outputStyle = \ScssPhp\ScssPhp\OutputStyle::EXPANDED;
 
     /**
      * @var array defined formatters
      */
     protected $formatters = [
-        'compressed', 'crunched', 'expanded', 'nested',
+        \ScssPhp\ScssPhp\OutputStyle::COMPRESSED,
+        \ScssPhp\ScssPhp\OutputStyle::EXPANDED
     ];
 
 
@@ -66,10 +67,10 @@ class Scss extends Parser
         }
 
         if (in_array($this->outputStyle, $this->formatters)) {
-            if ($this->lineComments && in_array($this->outputStyle, ['compressed', 'crunched'])) {
+            if ($this->lineComments && $this->outputStyle === \ScssPhp\ScssPhp\OutputStyle::COMPRESSED) {
                 $this->lineComments = false;
             }
-            $parser->setFormatter('ScssPhp\\ScssPhp\\Formatter\\' . ucfirst($this->outputStyle));
+            $parser->setOutputStyle($this->outputStyle);
         }
 
         if ($this->enableCompass) {

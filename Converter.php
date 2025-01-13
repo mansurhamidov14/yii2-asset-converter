@@ -6,7 +6,7 @@
  * @version 1.0.0 (2011-05-05)
  */
 
-namespace nizsheanez\assetConverter;
+namespace Twelver313\AssetConverter;
 
 use Yii;
 use yii\base\Exception;
@@ -19,19 +19,19 @@ class Converter extends \yii\web\AssetConverter
      */
     protected $defaultParsersOptions = [
         'sass' => [ // file extension to parse
-            'class' => 'nizsheanez\assetConverter\Sass',
+            'class' => 'Twelver313\AssetConverter\Sass',
             'output' => 'css', // parsed output file type
             'options' => [
                 'cachePath' => '@app/runtime/cache/sass-parser' // optional options
             ],
         ],
         'scss' => [ // file extension to parse
-            'class' => 'nizsheanez\assetConverter\Sass',
+            'class' => 'Twelver313\AssetConverter\Sass',
             'output' => 'css', // parsed output file type
             'options' => [] // optional options
         ],
         'less' => [ // file extension to parse
-            'class' => 'nizsheanez\assetConverter\Less',
+            'class' => 'Twelver313\AssetConverter\Less',
             'output' => 'css', // parsed output file type
             'options' => [
                 'auto' => true // optional options

@@ -1,5 +1,5 @@
 <?php
-namespace nizsheanez\assetConverter;
+namespace Twelver313\AssetConverter;
 
 use Yii;
 

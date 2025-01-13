@@ -14,7 +14,7 @@ YII 2.0
 ~~~php
 
 "require": {
-    "nizsheanez/yii2-asset-converter": "1.*",
+    "twelver313/yii2-asset-converter": "1.*",
 },
 
 php composer.phar update
@@ -27,7 +27,7 @@ php composer.phar update
     'assetManager' => [
         'bundles' => require(__DIR__ . '/assets.php'),
         'converter'=> [
-            'class'=>'nizsheanez\assetConverter\Converter',
+            'class'=>'Twelver313\AssetConverter\Converter',
         ]
     ],
 ~~~
@@ -78,24 +78,24 @@ But you can change it by destinationDir property from config
 'components' => [
 	'assetManager' => [
         'converter'=> [
-            'class'=> 'nizsheanez\assetConverter\Converter',
+            'class'=> 'Twelver313\AssetConverter\Converter',
             'force'=> false, // true : If you want convert your sass each time without time dependency
             'destinationDir' => 'compiled', //at which folder of @webroot put compiled files
             'parsers' => [
                 'sass' => [ // file extension to parse
-                    'class' => 'nizsheanez\assetConverter\Sass',
+                    'class' => 'Twelver313\AssetConverter\Sass',
                     'output' => 'css', // parsed output file type
                     'options' => [
                         'cachePath' => '@app/runtime/cache/sass-parser' // optional options
                     ],
                 ],
                 'scss' => [ // file extension to parse
-                    'class' => 'nizsheanez\assetConverter\Sass',
+                    'class' => 'Twelver313\AssetConverter\Sass',
                     'output' => 'css', // parsed output file type
                     'options' => [] // optional options
                 ],
                 'less' => [ // file extension to parse
-                    'class' => 'nizsheanez\assetConverter\Less',
+                    'class' => 'Twelver313\AssetConverter\Less',
                     'output' => 'css', // parsed output file type
                     'options' => [
 		    	'importDirs' => [], // import paths, you may use path alias here ex. '@app/assets/common/less'
@@ -119,7 +119,7 @@ Also, for SCSS files you can use alternate configuration:
                 'parsers' => [
                     // ...
                     'scss' => [ // file extension to parse
-                        'class' => 'nizsheanez\assetConverter\Scss',
+                        'class' => 'Twelver313\AssetConverter\Scss',
                         'output' => 'css', // parsed output file type
                         'options' => [ // optional options
                             'enableCompass' => true, // default is true
